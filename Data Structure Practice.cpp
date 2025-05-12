@@ -15,6 +15,7 @@ int main()
 {
     clsDblLinkedList<int> MydblLinkedList;
 
+    
     MydblLinkedList.InsertAtBeginning(5);
     MydblLinkedList.InsertAtBeginning(4);
     MydblLinkedList.InsertAtBeginning(3);
@@ -33,5 +34,9 @@ int main()
     {
         cout << "\n Node not found -_-\n";
     }
+
+    MydblLinkedList.InsertAfter(N1, 500);
+    cout << "\n Node After Insert '500' After '2' ^_^\n";
+    MydblLinkedList.PrintList();
 }
 

@@ -26,7 +26,6 @@ public:
 		new_node->prev = NULL;
 		new_node->next = head;
 
-
 		if (head != NULL)
 		{
 			head->prev = new_node;
@@ -65,5 +64,22 @@ public:
 		}
 		return NULL;
 	}
+
+	void InsertAfter(Node* Current,T val)
+	{
+		Node* NewNd = new Node();
+		NewNd->value = val;
+		NewNd->next = Current->next;
+		NewNd->prev = Current;
+		
+		if (Current->next != NULL)
+		{
+			Current->next->prev = NewNd;
+		}
+		Current->next = NewNd;
+
+	}
+
 };
+
 
