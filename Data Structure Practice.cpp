@@ -38,5 +38,9 @@ int main()
     MydblLinkedList.InsertAfter(N1, 500);
     cout << "\n Node After Insert '500' After '2' ^_^\n";
     MydblLinkedList.PrintList();
+
+    MydblLinkedList.InsertAtEnd(999);
+    cout << "\n Node After Insert '999' at the End ^_^\n";
+    MydblLinkedList.PrintList();
 }
 

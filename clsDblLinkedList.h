@@ -80,6 +80,29 @@ public:
 
 	}
 
+	void InsertAtEnd(T val)
+	{
+		Node* Nw = new Node();
+		Nw->value = val;
+		Nw->next = NULL;
+
+		if (head == NULL)
+		{
+			Nw->prev = NULL;
+			head = Nw;
+		}
+		else
+		{
+			Node* last = head;
+
+			while (last->next != NULL)
+			{
+				last = last->next;
+			}
+			Nw->prev = last;
+			last->next = Nw;
+		}
+	}
 };
 
 
