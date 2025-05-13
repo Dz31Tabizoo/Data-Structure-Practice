@@ -15,7 +15,7 @@ int main()
 {
     clsDblLinkedList<int> MydblLinkedList;
 
-    
+
     MydblLinkedList.InsertAtBeginning(5);
     MydblLinkedList.InsertAtBeginning(4);
     MydblLinkedList.InsertAtBeginning(3);
@@ -42,5 +42,10 @@ int main()
     MydblLinkedList.InsertAtEnd(999);
     cout << "\n Node After Insert '999' at the End ^_^\n";
     MydblLinkedList.PrintList();
-}
+
+    clsDblLinkedList <int> ::Node* N2 = MydblLinkedList.Find(999);
+    MydblLinkedList.DeleteNode(N2);
+    cout << "\n Node After Delete '999' ^_^\n";
+    MydblLinkedList.PrintList();
+};
 

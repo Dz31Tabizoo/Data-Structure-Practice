@@ -103,6 +103,47 @@ public:
 			last->next = Nw;
 		}
 	}
+
+	void DeleteNode(Node* &Del_Node)
+	{
+		/// RAFIK's CODE :
+
+		// empty List or empty Node
+		if (head == NULL || Del_Node == NULL )
+		{
+			return;
+		}
+
+		// only one node in list
+		if (Del_Node->next == nullptr && Del_Node->prev == NULL)
+		{
+			delete Del_Node;
+			return;
+		}
+
+		// first node
+		if (Del_Node->prev == NULL)
+		{
+			head = Del_Node->next;
+			Del_Node->next->prev = NULL;
+			delete Del_Node;
+			return;
+		}
+
+		//last node
+		if (Del_Node->next == NULL)
+		{
+			Del_Node->prev->next = NULL;
+			delete Del_Node;
+			return;
+		}
+				
+            Del_Node->next->prev = Del_Node->prev;
+			Del_Node->prev->next = Del_Node->next;
+			delete Del_Node;
+		
+		
+	}
 };
 
 
