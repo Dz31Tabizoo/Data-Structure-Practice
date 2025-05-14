@@ -6,6 +6,9 @@ using namespace std;
 template < typename T>
 class clsDblLinkedList
 {
+protected:
+
+	int _Size = 0;
 
 public:
 
@@ -32,6 +35,7 @@ public:
 		}
 
 		head = new_node;
+		_Size++;
 	}
 
 	void PrintList()
@@ -47,7 +51,7 @@ public:
 			cout << "| " << current->value << " |";
 			current = current->next;
 		}
-		cout << "\n\a";
+		cout << "\nSize = \a" << _Size << endl;
 	}
 
 	Node* Find(T Val)
@@ -78,6 +82,7 @@ public:
 		}
 		Current->next = NewNd;
 
+		_Size++;
 	}
 
 	void InsertAtEnd(T val)
@@ -102,6 +107,7 @@ public:
 			Nw->prev = last;
 			last->next = Nw;
 		}
+		_Size++;
 	}
 
 	void DeleteNode(Node* &Del_Node)
@@ -118,6 +124,7 @@ public:
 		if (Del_Node->next == nullptr && Del_Node->prev == NULL)
 		{
 			delete Del_Node;
+			_Size--;
 			return;
 		}
 
@@ -127,6 +134,7 @@ public:
 			head = Del_Node->next;
 			Del_Node->next->prev = NULL;
 			delete Del_Node;
+			_Size--;
 			return;
 		}
 
@@ -135,6 +143,7 @@ public:
 		{
 			Del_Node->prev->next = NULL;
 			delete Del_Node;
+			_Size--;
 			return;
 		}
 				
@@ -142,7 +151,7 @@ public:
 			Del_Node->prev->next = Del_Node->next;
 			delete Del_Node;
 		
-		
+			_Size--;
 	}
 
 	void DeleteFirstNode()
@@ -160,6 +169,7 @@ public:
 			head->prev = nullptr;
 		}
 		delete Temp;
+		_Size--;
 	}
 
 	void DeleteLastNode()
@@ -184,9 +194,33 @@ public:
 			Temp = Temp->next;
 		}
 
-		Temp->prev->next = nullptr;
+		if (Temp->prev != nullptr)
+		{
+			Temp->prev->next = nullptr;
+		}
+		
 		delete Temp;
+		_Size--;
+	}
 
+	int Size()
+	{
+		/// this take O(n)
+		/*if (head == nullptr)
+		{
+			return 0;
+		}
+		int counter = 1;
+        
+		while (head->next != nullptr)
+		{
+			head = head->next;
+			counter++;
+		}
+		return counter;*/
+
+		/// using _Size++ && -- O(1)
+		return _Size;
 	}
 };
 

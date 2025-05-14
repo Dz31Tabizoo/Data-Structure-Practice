@@ -47,5 +47,13 @@ int main()
     MydblLinkedList.DeleteNode(N2);
     cout << "\n Node After Delete '999' ^_^\n";
     MydblLinkedList.PrintList();
+
+    MydblLinkedList.DeleteFirstNode();
+    MydblLinkedList.DeleteLastNode();
+    cout << "\n Node After Delete first and last Node ^_^\n";
+    MydblLinkedList.PrintList();
+    
+    cout << "\nNumber of items in the linked list = " << MydblLinkedList.Size();
+
 };
 
