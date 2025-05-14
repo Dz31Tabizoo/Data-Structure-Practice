@@ -236,6 +236,25 @@ public:
 			DeleteFirstNode();
 		}
 	}
+
+	void Reverse()
+	{
+		if (head == nullptr || head->next==nullptr)
+		{
+			return;
+		}
+		Node* Last = head;
+
+		while (Last->next != nullptr)
+		{
+			Last = Last->next;
+		}
+		// we are at the last node:
+		head = Last;
+
+		Last->next == Last->prev;
+
+	}
 };
 
 
