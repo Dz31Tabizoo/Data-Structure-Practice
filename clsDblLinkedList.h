@@ -144,6 +144,50 @@ public:
 		
 		
 	}
+
+	void DeleteFirstNode()
+	{
+		if (head == nullptr)
+		{
+			return;
+		}
+
+		Node* Temp = head;
+		head = head->next;
+
+		if (head != nullptr)
+		{
+			head->prev = nullptr;
+		}
+		delete Temp;
+	}
+
+	void DeleteLastNode()
+	{
+		if (head == nullptr)
+		{
+			return;
+		}
+
+		if (head->next == nullptr)
+		{
+			delete head;
+			head = nullptr;
+			return;
+		}
+
+
+		Node* Temp = head;
+
+		while (Temp->next != nullptr)
+		{
+			Temp = Temp->next;
+		}
+
+		Temp->prev->next = nullptr;
+		delete Temp;
+
+	}
 };
 
 
