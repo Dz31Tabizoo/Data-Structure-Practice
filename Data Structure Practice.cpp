@@ -15,6 +15,10 @@ int main()
 {
     clsDblLinkedList<int> MydblLinkedList;
 
+    if (MydblLinkedList.IsEmpty())
+        cout << "List is Empty...\n";
+    else
+        cout << "List is not empty\n";
 
     MydblLinkedList.InsertAtBeginning(5);
     MydblLinkedList.InsertAtBeginning(4);

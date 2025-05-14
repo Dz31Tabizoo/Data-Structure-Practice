@@ -222,6 +222,20 @@ public:
 		/// using _Size++ && -- O(1)
 		return _Size;
 	}
+
+	bool IsEmpty()
+	{
+		// Or return (head == nullptr) ? true : false;
+		return (_Size == 0 ? true : false);
+	}
+    
+	void Clear()
+	{
+		while (_Size > 0)
+		{
+			DeleteFirstNode();
+		}
+	}
 };
 
 
