@@ -265,6 +265,73 @@ public:
 			head = Temp->prev;
 		}
 	}
+
+    Node* GetNode(T index)
+	{
+
+		int pos = 0;
+		Node* current = head;
+
+		if (index < 0 || index > _Size -1 )
+		{
+			return nullptr;
+		}
+
+		if (head == NULL)
+		{
+			return NULL;
+		}
+		if (index == 0)
+		{
+			return current;
+		}
+		
+			
+		while (current->next != NULL)
+		{
+			if (pos == index)
+			{
+				break;
+			}
+			
+			current = current->next;
+			pos++;
+			
+
+		}
+		
+		return current;
+    }
+	
+	T GetItem(T index)
+	{
+		if (GetNode(index) != NULL)
+		{
+			return GetNode(index)->value;
+		}
+		else
+		{
+			return NULL;
+		}
+	}
+
+	bool UpdateItem(auto index, T NewValue)
+	{
+		Node* ToUpd = new Node();
+		ToUpd = GetNode(index);
+		if (ToUpd != nullptr)
+		{
+			ToUpd->value = NewValue;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	bool InsertAfter(auto index, )
+
 };
 
 

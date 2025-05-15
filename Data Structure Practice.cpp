@@ -64,5 +64,24 @@ int main()
     cout << "\n Node After reverse ^_^\n";
     MydblLinkedList.PrintList();
 
+
+    clsDblLinkedList <int> ::Node* X;
+    X = MydblLinkedList.GetNode(2);
+    cout << "\n Node Value OF INDEX 2 Is: " << X->value;
+
+    
+    cout << "\n item of index 0 =  " << MydblLinkedList.GetItem(0) << endl;
+
+
+    MydblLinkedList.UpdateItem(0, 333);
+    MydblLinkedList.PrintList();
+
+
+
+
+
+    system("pause>0");
+    return 0;
+
 };
 
