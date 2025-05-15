@@ -30,6 +30,7 @@ int main()
 
 
     clsDblLinkedList <int> ::Node* N1 = MydblLinkedList.Find(2);
+
     if (N1 != NULL)
     {
         cout << "\n Node With Value \"2\ found ^_^\n";
@@ -58,6 +59,10 @@ int main()
     MydblLinkedList.PrintList();
     
     cout << "\nNumber of items in the linked list = " << MydblLinkedList.Size();
+
+    MydblLinkedList.Reverse();
+    cout << "\n Node After reverse ^_^\n";
+    MydblLinkedList.PrintList();
 
 };
 

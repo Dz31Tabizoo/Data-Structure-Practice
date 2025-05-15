@@ -7,8 +7,10 @@ template < typename T>
 class clsDblLinkedList
 {
 protected:
-
+	
 	int _Size = 0;
+
+	
 
 public:
 
@@ -22,6 +24,12 @@ public:
 
 	Node* head = NULL;
 
+	void _SwapNode(Node* N1)
+	{
+		Node* Temp = N1->next;
+		N1->next = N1->prev;
+		N1->prev = Temp;
+	}
 	void InsertAtBeginning(T val)
 	{
 		Node* new_node = new Node();
@@ -219,7 +227,7 @@ public:
 		}
 		return counter;*/
 
-		/// using _Size++ && -- O(1)
+		/// using _Size++ : IT TAKES O(1)
 		return _Size;
 	}
 
@@ -231,6 +239,7 @@ public:
     
 	void Clear()
 	{
+		///SMART
 		while (_Size > 0)
 		{
 			DeleteFirstNode();
@@ -239,21 +248,22 @@ public:
 
 	void Reverse()
 	{
-		if (head == nullptr || head->next==nullptr)
+		
+
+		Node* current = head;
+		Node* Temp = nullptr;
+
+		while (current != NULL )
 		{
-			return;
+			Temp = current->prev;
+			current->prev = current->next;
+			current->next = Temp;
+			current = current->prev;
 		}
-		Node* Last = head;
-
-		while (Last->next != nullptr)
+		if (Temp != nullptr)
 		{
-			Last = Last->next;
+			head = Temp->prev;
 		}
-		// we are at the last node:
-		head = Last;
-
-		Last->next == Last->prev;
-
 	}
 };
 
