@@ -1,5 +1,6 @@
 #include <iostream>
-#include"clsDblLinkedList.h"
+#include "clsDblLinkedList.h"
+#include "clsMyQueue.h"
 
 using namespace std;
 
@@ -77,6 +78,33 @@ int main()
     MydblLinkedList.PrintList();
 
 
+    cout << "\n After insert 111 after index '2':\n" ;
+    MydblLinkedList.InsertAfter(2, 111);
+    MydblLinkedList.PrintList();
+
+    system("cls");
+
+    cout << "\n ---- clear List : go Queue ----------" << endl;
+
+    clsMyQueue <int> MyQueue;
+
+    MyQueue.push(10);
+    MyQueue.push(20);
+    MyQueue.push(30);
+    MyQueue.push(40);
+
+    cout << "\nMy Queue: ";
+    MyQueue.Print();
+
+    cout << "\nMy Queue Size = " << MyQueue.Size() << endl;
+    cout << "\nMy Queue Front = " << MyQueue.Front() << endl;
+    cout << "\nMy Queue Back = " << MyQueue.Back() << endl;
+
+
+    MyQueue.Pop();
+    
+    cout << "\nMy Queue after 1 Pop : ";
+    MyQueue.Print();
 
 
 

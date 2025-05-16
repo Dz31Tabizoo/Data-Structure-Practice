@@ -59,7 +59,7 @@ public:
 			cout << "| " << current->value << " |";
 			current = current->next;
 		}
-		cout << "\nSize = \a" << _Size << endl;
+		
 	}
 
 	Node* Find(T Val)
@@ -315,7 +315,7 @@ public:
 		}
 	}
 
-	bool UpdateItem(auto index, T NewValue)
+	bool UpdateItem(int index, T NewValue)
 	{
 		Node* ToUpd = new Node();
 		ToUpd = GetNode(index);
@@ -330,7 +330,17 @@ public:
 		}
 	}
 
-	bool InsertAfter(auto index, )
+	bool InsertAfter(int index, T NewValue) 
+	{
+		Node* N = GetNode(index);
+		if (N != NULL)
+		{
+			InsertAfter(N, NewValue);
+			return true;
+		}
+		
+		return false;
+	}
 
 };
 
