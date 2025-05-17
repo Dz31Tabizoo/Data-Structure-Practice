@@ -92,6 +92,8 @@ int main()
     MyQueue.push(20);
     MyQueue.push(30);
     MyQueue.push(40);
+    MyQueue.push(50);
+    MyQueue.push(60);
 
     cout << "\nMy Queue: ";
     MyQueue.Print();
@@ -106,6 +108,31 @@ int main()
     cout << "\nMy Queue after 1 Pop : ";
     MyQueue.Print();
 
+    cout << "\n\n Item (2) = " << MyQueue.GetItem(2);
+
+    MyQueue.Reverse();
+    cout << "\nMy Queue after Reverse : ";
+    MyQueue.Print();
+    
+    MyQueue.UpdateItem(2, 600);
+    cout << "\n\nMy Queue after update imem(2) to 600 :   ";
+    MyQueue.Print();
+
+    MyQueue.InsertAfter(2, 800);
+    cout << "\n\nMy Queue after update imem(2) to 300 :   ";
+    MyQueue.Print();
+
+    MyQueue.InsertAtFront(1000);
+    cout << "\n\nMy Queue after  1000 At Front :   ";
+    MyQueue.Print();
+
+    MyQueue.InsertAtBack(2000);
+    cout << "\n\nMy Queue after Insert 2000 At Back  :   ";
+    MyQueue.Print();
+
+    MyQueue.Clear();
+    cout << "\n\nMy Queue after Clear :   ";
+    MyQueue.Print();
 
 
     system("pause>0");

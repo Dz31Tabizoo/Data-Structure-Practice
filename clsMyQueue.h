@@ -7,6 +7,8 @@ class clsMyQueue
 {
 	// first in first out  FIFO
 protected:
+
+	// composition not inherritance
 	clsDblLinkedList <T> _MyList;
 
 public :
@@ -38,6 +40,38 @@ public :
 	T Back()
 	{
 		return _MyList.GetItem(Size() - 1);
+	}
+
+	T GetItem(int index)
+	{
+		return _MyList.GetItem(index);
+	}
+
+	void Reverse()
+	{
+		_MyList.Reverse();
+	}
+	void UpdateItem(int indx, T Value)
+	{
+		_MyList.UpdateItem(indx, Value);
+	}
+
+	void InsertAfter(int dex, T Vall)
+	{
+		_MyList.InsertAfter(dex, Vall);
+	}
+
+	void InsertAtFront(T Value)
+	{
+		_MyList.InsertAtBeginning(Value);
+	}
+	void InsertAtBack(T Valu)
+	{
+		_MyList.InsertAtEnd(Valu);
+	}
+	void Clear()
+	{
+		_MyList.Clear();
 	}
 };
 
