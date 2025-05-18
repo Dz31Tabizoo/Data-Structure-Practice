@@ -8,10 +8,11 @@ class clsDynamicArray
 {
 protected:
 	int _Size = 0;
-
+	T* TempArray ;
 
 public:
 	T* OriginalArray;
+	
 
 	//constractor
 	clsDynamicArray(int Size = 0)
@@ -20,6 +21,7 @@ public:
 		{
 			Size = 0;
 		}
+
 		_Size = Size;
 		OriginalArray = new T[_Size];
 	}
@@ -60,6 +62,63 @@ public:
 			cout << " | " << OriginalArray[i] << " | ";
 		}
 		cout << endl;
+	}
+
+	void Resize(int NewSize)
+	{
+		if (NewSize < 0 )
+		{
+			NewSize = 0;
+		}
+
+		TempArray = new T[NewSize];
+			
+		if (NewSize < _Size)
+		{
+			_Size = NewSize;
+		}
+
+
+			for (int i = 0; i < NewSize; i++)
+			{
+				TempArray[i] = OriginalArray[i];
+				
+			}
+
+			_Size = NewSize;
+
+			delete[] OriginalArray;
+			OriginalArray = TempArray;	
+		
+
+		
+	}
+
+	T GetItem(int index)
+	{
+		return OriginalArray[index];
+	}
+
+	void Reverse()
+	{
+		TempArray = new T[_Size];
+
+
+		for (int i = 0; i < _Size; i++)
+		{
+			TempArray[i] = OriginalArray[_Size - i - 1];
+		}
+		delete[]OriginalArray;
+		OriginalArray = TempArray;
+	}
+
+	void Clear()
+	{
+		_Size = 0;
+		TempArray = new T[0];
+		delete[] OriginalArray;
+		OriginalArray = TempArray;
+		
 	}
 
 };

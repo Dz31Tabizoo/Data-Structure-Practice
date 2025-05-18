@@ -211,9 +211,29 @@ int main()
 
     MyDynamicArray.print();
 
+    /*MyDynamicArray.Resize(2);
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after resize to 2 : \n";
+    MyDynamicArray.print();
+
+    MyDynamicArray.Resize(10);
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after resize to 10 : \n";
+    MyDynamicArray.print();*/
 
 
+    MyDynamicArray.Reverse();
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after Reverse: \n";
+    MyDynamicArray.print();
 
+
+    cout << "\n\n Item (2)= " << MyDynamicArray.GetItem(2);
+
+    MyDynamicArray.Clear();
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after Clear: \n";
+    MyDynamicArray.print();
 
 
     system("pause>0");
