@@ -1,20 +1,31 @@
 #pragma once
-#include 'clsDblLinkedList'
+#include "clsMyQueue.h"
+#include <iostream>
+
+
 
 template <class T>
-class clsMyStack
+
+class clsMyStack : public clsMyQueue <T>
 {
-protected:
-clsDblLinkedlist <int> _Mylist;
+
 
 public:
 
-void Push() 
+void Push(T item)
 {
-   _Mylist.InsertAtBeginning();
+	clsMyQueue <T> ::_MyList.InsertAtBeginning(item);
+
 }
 
+T Top()
+{
+	return clsMyQueue<T>::Front();
+}
 
-
+T Bottom()
+{
+	return clsMyQueue<T> ::Back();
+}
 };
 
