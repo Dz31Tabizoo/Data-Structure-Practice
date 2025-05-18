@@ -2,6 +2,7 @@
 #include "clsDblLinkedList.h"
 #include "clsMyQueue.h"
 #include "clsMyStack.h"
+#include "clsDynamicArray.h"
 
 using namespace std;
 
@@ -191,6 +192,27 @@ int main()
     MyStack.Clear();
     cout << "\n\nStack after Clear(): \n";
     MyStack.Print();
+    system("cls");
+    cout << "\n ------------- Dynamic Array --------------------\n";
+
+
+    clsDynamicArray <int> MyDynamicArray(5);
+
+    MyDynamicArray.SetItem(0,10);
+    MyDynamicArray.SetItem(1, 20);
+    MyDynamicArray.SetItem(2, 30);
+    MyDynamicArray.SetItem(3, 40);
+    MyDynamicArray.SetItem(4, 50);
+
+
+    cout << "\nIs Empty?  " << MyDynamicArray.IsEmpty();
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items: \n";
+
+    MyDynamicArray.print();
+
+
+
 
 
 
