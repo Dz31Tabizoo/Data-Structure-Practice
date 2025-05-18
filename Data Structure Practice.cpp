@@ -228,12 +228,57 @@ int main()
     MyDynamicArray.print();
 
 
-    cout << "\n\n Item (2)= " << MyDynamicArray.GetItem(2);
+    cout << "\n\n Item (2) = " << MyDynamicArray.GetItem(2);
 
-    MyDynamicArray.Clear();
+
+    /// clear and Deletes Tests
+   /* MyDynamicArray.Clear();
     cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
     cout << "\nArray Items after Clear: \n";
     MyDynamicArray.print();
+
+
+
+
+    MyDynamicArray.DeleteItemAt(2);
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after Delete Item (2): \n";
+    MyDynamicArray.print();
+
+
+    MyDynamicArray.DeleteFirstItem();
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after Delete First Item : \n";
+    MyDynamicArray.print();
+
+
+    MyDynamicArray.DeleteLastItem();
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after Delete Last Item : \n";
+    MyDynamicArray.print();
+
+    */
+
+
+    int Index = MyDynamicArray.Find(30);
+    if (Index == -1)
+    {
+        cout << "\nItem was not found...";
+    }
+    else
+    {
+        cout << "\n30 is Found at Index : " << Index << endl;
+    }
+
+
+    MyDynamicArray.DeleteItem(30);
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items aftr Delete Item 30; \n";
+    MyDynamicArray.print();
+
+
+
+
 
 
     system("pause>0");
