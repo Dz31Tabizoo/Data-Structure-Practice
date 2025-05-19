@@ -277,8 +277,21 @@ int main()
     MyDynamicArray.print();
 
 
+    MyDynamicArray.InsertAt(1, 777);
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after insert 777 after index 1 \n";
+    MyDynamicArray.print();
 
 
+    MyDynamicArray.InsertAtBeginning(111);
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after insert 111 at beginning \n";
+    MyDynamicArray.print();
+
+    MyDynamicArray.InsertAtEnd(999);
+    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Items after insert 999 at beginning \n";
+    MyDynamicArray.print();
 
 
     system("pause>0");

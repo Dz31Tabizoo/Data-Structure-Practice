@@ -65,7 +65,7 @@ public:
 		{
 			cout << "Empty Array...";
 		}
-		cout << endl;
+		cout << "\n------------------------------------------------" << endl;
 	}
 
 	void Resize(int NewSize)
@@ -212,7 +212,7 @@ public:
 
 	bool DeleteItem(T val)
 	{
-		int index = Find(Val);
+		int index = Find(val);
 		if (index == -1)
 		{
 			return false;
@@ -222,28 +222,116 @@ public:
 		return true;
 	}
 	
-	void InsertAt(int index, T Value)
-	{
-		if (index > _Size || index < 0)
-		{
-			return;
+	bool InsertAt(T index, T value) {
+		if (index > _Size || index < 0) {
+			return false;
 		}
 
 		_Size++;
 		TempArray = new T[_Size];
 
-		for (int i = 0; i < _Size; i++)
-		{
-			if (i == index + 1)
-			{
-				TempArray[i] = Value;
-
-			}
+		// Copy all before index
+		for (int i = 0; i < index; i++) {
+			TempArray[i] = OriginalArray[i];
 		}
-		
-		// to be countined
+
+		TempArray[index] = value;
+
+		// Copy all after index
+		for (int i = index; i < _Size - 1; i++) {
+			TempArray[i + 1] = OriginalArray[i];
+		}
+
+		delete[] OriginalArray;
+		OriginalArray = TempArray;
+		return true;
+	}
+	
+	void InsertAtBeginning(T Val)
+	{
+		_Size++;
+		TempArray = new T[_Size];
+		TempArray[0] = Val;
+     	for (int i = 1; i <= _Size-1; i++)
+		{
+			TempArray[i] = OriginalArray[i-1];
+		}
+		delete[] OriginalArray;
+		OriginalArray = TempArray;
+	}
+
+	void InsertAtEnd(T Val)
+	{
+		_Size++;
+		TempArray = new T[_Size];
+
+		TempArray[_Size-1] = Val;
+
+		for (int i = 0; i < _Size-1; i++)
+		{
+			TempArray[i] = OriginalArray[i];
+		}
+		delete[] OriginalArray;
+		OriginalArray = TempArray;
+	}
+
+	bool InsertAfter (int index, T Value) {
+		if (index > _Size || index < -2) {
+			return false;
+		}
+
+		_Size++;
+		TempArray = new T[_Size];
+		int Pos = index + 1;
+
+		for (int i = 0; i <= index; i++) {
+			TempArray[i] = OriginalArray[i];
+		}
+
+		for (int i = Pos; i < _Size; i++) {
+			if (Pos == i) {
+				TempArray[Pos] = Value;
+				i++;
+			}
+			TempArray[i] = OriginalArray[i - 1];
+		}
+
+		delete[] OriginalArray;
+		OriginalArray = TempArray;
+		return true;
+	}
+
+	void InsertAt_Beginning(T value)
+	{
+
+		InsertAt(0, value);
+
 	}
 
 
+	bool Insert_Before(T index, T value)
+	{
+		if (index < 1)
+			return InsertAt(0, value);
+		else
+			return InsertAt(index - 1, value);
+
+	}
+
+	bool Insert_After(T index, T value)
+	{
+		if (index >= _Size)
+			return InsertAt(_Size - 1, value);
+		else
+			return InsertAt(index + 1, value);
+
+	}
+
+	bool Insert_AtEnd(T value)
+	{
+
+		return InsertAt(_Size, value);
+
+	}
 };
 
