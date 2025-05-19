@@ -3,6 +3,7 @@
 #include "clsMyQueue.h"
 #include "clsMyStack.h"
 #include "clsDynamicArray.h"
+#include "clsMyQueueArr.h"
 
 using namespace std;
 
@@ -292,6 +293,26 @@ int main()
     cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
     cout << "\nArray Items after insert 999 at beginning \n";
     MyDynamicArray.print();
+
+
+    system("cls");
+    cout << "\n ------------- Queue Arrray --------------------\n";
+
+
+    clsMyQueueArr <int> Q_Arr_OBJ;
+
+    Q_Arr_OBJ.Push(10);
+    Q_Arr_OBJ.Push(20);
+    Q_Arr_OBJ.Push(30);
+    
+    cout << "\nArray Size: " << Q_Arr_OBJ.Size() << "\n";
+    Q_Arr_OBJ.Print();
+
+    Q_Arr_OBJ.Pop();
+    cout << "\nArray Items afterPop \n";
+    Q_Arr_OBJ.Print();
+
+
 
 
     system("pause>0");
