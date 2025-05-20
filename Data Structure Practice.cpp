@@ -5,6 +5,8 @@
 #include "clsDynamicArray.h"
 #include "clsMyQueueArr.h"
 
+#include "clsMyString.h"
+
 using namespace std;
 
 
@@ -312,6 +314,49 @@ int main()
     cout << "\nArray Items afterPop \n";
     Q_Arr_OBJ.Print();
 
+    cout << "\n ------------- undo / redo --------------------\n";
+
+    cout << "\n\n\t\t\t\t\t\t Undo/Redo Project\n\n";
+
+    clsMyString S1;
+
+    cout << "\nS1  = " << S1.TEXT << "\n";
+
+    S1.TEXT = "Mohammed";
+
+    cout << "S1  = " << S1.TEXT << "\n";
+
+    S1.TEXT = "Mohammed2";
+
+    cout << "S1  = " << S1.TEXT << "\n";
+
+    S1.TEXT = "Mohammed3";
+
+    cout << "S1  = " << S1.TEXT << "\n";
+
+    cout << "\n\nUndo: ";
+    cout << "\n__________\n";
+
+    S1.Undo();
+    cout << "\nS1  after undo = " << S1.TEXT << "\n";
+
+    S1.Undo();
+    cout << "S1  after undo = " << S1.TEXT << "\n";
+
+    S1.Undo();
+    cout << "S1  after undo = " << S1.TEXT << "\n";
+
+    cout << "\n\nRedo: ";
+    cout << "\n__________\n";
+
+    S1.Redo();
+    cout << "\nS1  after Redo = " << S1.TEXT << "\n";
+
+    S1.Redo();
+    cout << "S1  after Redo = " << S1.TEXT << "\n";
+
+    S1.Redo();
+    cout << "S1  after Redo = " << S1.TEXT << "\n";
 
 
 
